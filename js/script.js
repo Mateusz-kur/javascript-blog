@@ -1,8 +1,4 @@
-/*document.getElementById('test-button').addEventListener('click', function(){
-    const links = document.querySelectorAll('.titles a');
-    console.log('links:', links);
-  });
-*/
+
 const titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
@@ -51,8 +47,7 @@ const titleClickHandler = function(event){
   function generateTitleLinks(){
   
     /* remove contents of titleList */
-    const titleList;
-    querySelector(optTitleListSelector) = titleList;
+    const titleList = querySelector(optTitleListSelector);
     function clearMessages(){
         document.titleList.innerHTML = '';
     }
