@@ -20,9 +20,10 @@ for(let link of links){
   }*/
 
   const titleClickHandler = function(event){
-    console.log();
+    const clickedElement = this;
+    console.log('Link was clicked!');
   
-    /* remove class 'active' from all article links  */
+    /*[DONE] remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll('.titles a.active');
 
     for(let activeLink of activeLinks){
@@ -30,10 +31,10 @@ for(let link of links){
     }
   
     /* add class 'active' to the clicked link */
-    /*const activeLinks = document.querySelectorAll('.titles');
-    activeLinks.classList.add('active'); */
+    console.log('clickedElement:' , clickedElement);
+    clickedElement.classList.add('active');
   
-    /* remove class 'active' from all articles */
+    /*[DONE] remove class 'active' from all articles */
     const activeArticles = document.querySelectorAll('.post a.active')
         for (let activeArticle of activeArticles) {
             activeArticle.classList.remove('active');
