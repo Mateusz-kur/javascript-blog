@@ -20,13 +20,24 @@ for(let link of links){
   }*/
 
   const titleClickHandler = function(event){
-    console.log(event);
+    console.log();
   
     /* remove class 'active' from all article links  */
+    const activeLinks = document.querySelectorAll('.titles a.active');
+
+    for(let activeLink of activeLinks){
+        activeLink.classList.remove('active');
+    }
   
     /* add class 'active' to the clicked link */
+    /*const activeLinks = document.querySelectorAll('.titles');
+    activeLinks.classList.add('active'); */
   
     /* remove class 'active' from all articles */
+    const activeArticles = document.querySelectorAll('.post a.active')
+        for (let activeArticle of activeArticles) {
+            activeArticle.classList.remove('active');
+        }
   
     /* get 'href' attribute from the clicked link */
   
