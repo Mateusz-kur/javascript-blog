@@ -103,7 +103,7 @@ body {
 
 .post {
   display: none;
-  &.active {
+    &.active {
     display: block;
   }
 }
