@@ -34,19 +34,16 @@ body {
 
 /* Layout */
 .wrapper {
-  display: -ms-flexbox;
   display: flex;
   margin-left: 10px;
 }
 
 .sidebar {
-  -ms-flex: 1 0 0px;
-      flex: 1 0 0;
+  flex: 1 0 0;
 }
 
 .posts {
-  -ms-flex: 2 0 0px;
-      flex: 2 0 0;
+  flex: 2 0 0;
 }
 
 .sidebar, .posts {
@@ -101,11 +98,31 @@ body {
 }
 
 .post-tags {
-  display: -ms-flexbox;
-  display: flex;
+  display: inline;
 }
 
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.post-tags .tag-size-1 {
+  font-size: 12px;
+}
+
+.post-tags .tag-size-2 {
+  font-size: 14px;
+}
+
+.post-tags .tag-size-3 {
+  font-size: 17px;
+}
+
+.post-tags .tag-size-4 {
+  font-size: 20px;
+}
+
+.post-tags .tag-size-5 {
+  font-size: 24px;
+}
+
 /*# sourceMappingURL=style.css.map */
