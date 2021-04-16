@@ -2,12 +2,12 @@
 {
   const templates = {
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
-    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag').innerHTML),
-    authorsLinks: Handlebars.compile(document.querySelector('#template-authors-links').innerHTML),
-    links: Handlebars.compile(document.querySelector('#template-links').innerHTML),
-    authors: Handlebars.compile(document.querySelector('#template-authors').innerHTML),
+    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-links').innerHTML),
+    authorsCloudLinks: Handlebars.compile(document.querySelector('#template-authors-cloud-links').innerHTML),
+    rightTagLinks: Handlebars.compile(document.querySelector('#template-right-tag-links').innerHTML),
+    rightAuthorsLinks: Handlebars.compile(document.querySelector('#template-right-authors-links').innerHTML),
 
-  }
+  };
 
 
   const optArticleSelector = '.post',
@@ -77,7 +77,7 @@
       //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
       const linkHTMLData = {id: articleId, title: articleTitle};
-      const linkHTML = templates.links(linkHTMLData);
+      const linkHTML = templates.articleLink(linkHTMLData);
 
       /* insert link into titleList */
       html = html + linkHTML;
@@ -106,14 +106,14 @@
 
       const authorsWrapper = article.querySelector('.post-author');
       
-      let html='by ';
+      let html='';
 
       const dataAuthors = article.getAttribute('data-author');
 
       //const linkHTML = '<a href="#author-'+ dataAuthors +'">' + dataAuthors + '</a>';
 
       const linkHTMLData = {id: dataAuthors, title: dataAuthors};
-      const linkHTML = templates.authorsLinks(linkHTMLData);
+      const linkHTML = templates.authorsCloudLinks(linkHTMLData);
 
       html = html + linkHTML;
 
@@ -130,13 +130,17 @@
 
     // add authors link to the author list
     const authorList = document.querySelector(optAuthorListSelector);
-    let allAuthorsHTML = '';
+    let allAuthorsData = {author: []};
 
     for (let author in allAuthors) {
-      allAuthorsHTML += '<li><a href="#author-' + author +'">' + author + '</a></li>';
+      //allAuthorsHTML += '<li><a href="#author-' + author +'">' + author + '</a></li>';
+      allAuthorsData.author.push({
+        author: author,
+      });
       
     }
-    authorList.innerHTML = allAuthorsHTML;
+    authorList.innerHTML = templates.rightAuthorsLinks(allAuthorsData);
+    
   }
   generateAuthors();
 
@@ -151,7 +155,7 @@
 
     const author = href.replace('#author-', '');
 
-    const activeAuthor = document.querySelectorAll('a.active[href^="#tag-"]');
+    const activeAuthor = document.querySelectorAll('a.active[href^="#author-"]');
 
     for (let authors of activeAuthor) {
 
@@ -159,7 +163,7 @@
 
     }
 
-    const authorsLinks = document.querySelectorAll('a[href="' + href + '"]');
+    const authorsLinks = document.querySelectorAll('a[href="#' + href + '"]');
 
     for (let foundAuthor of authorsLinks) {
 
@@ -178,6 +182,13 @@
     
       link.addEventListener('click', authorClickHandler);
 
+    }
+    const rightAuthorsLinks = document.querySelectorAll('.authors li a');
+
+    for(let link of rightAuthorsLinks) {
+
+      link.addEventListener('click', authorClickHandler);
+      
     }
 
   }
@@ -262,7 +273,7 @@
     /*[NEW] create variable for all links HTML code */
     const tagsParams = calculateTagsParams(allTags);
     
-    let allTagsData = {tags: []};
+    const allTagsData = {tags: []};
 
     /* [NEW] START LOOP: for each tag in allTags:*/
     for (let tag in allTags) {
@@ -274,13 +285,10 @@
         count: allTags[tag],
         className: calculateTagClass(allTags[tag], tagsParams)
       });
-    
       /* [NEW] END LOOP: for each tag in allTags: */
-      
     }
-
     /* [NEW] add HTML from allTagsHTML to tagList */
-    tagList.innerHTML = templates.tagCloudLink(allTagsData);
+    tagList.innerHTML = templates.rightTagLinks(allTagsData);
   }
   generateTags();
 

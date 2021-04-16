@@ -191,22 +191,28 @@
       </main>
     </div>
   </div>
-  <script id="template-links" type="text/x-handlebars-template">
-    
-  </script>
-  <script id="template-authors-links" type="text/x-handlebars-template">
-    <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
-  </script>
-  <script id="template-authors" type="text/x-handlebars-template">
-    
-  </script>
-  <script id="template-tag" type="text/x-handlebars-template">
-    <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
-  </script>
-
   <script id="template-article-link" type="text/x-handlebars-template">
     <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
   </script>
+  <script id="template-tag-cloud-links" type="text/x-handlebars-template">
+    <li><a href="#tag-{{ id }}"><span>{{ title }}</span></a></li>
+  </script>
+  <script id="template-authors-cloud-links" type="text/x-handlebars-template">
+    <li><a href="#author-{{ id }}"><span>{{ title }}</span></a></li>
+  </script>
+  <script id="template-right-tag-links" type="text/x-handlebars-template">
+    {{#each tags}}
+    <li><a href="#tag-{{ tag }}" class="{{ className }}">{{ tag }}</a> ( {{ count }} )</li>
+    {{/each}}
+  </script>
+  <script id="template-right-authors-links" type="text/x-handlebars-template">
+    {{#each author}}
+    <li><a href="#author-{{ author }}">{{ author }}</a></li>
+    {{/each}}
+  </script>
+ 
+
+  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="js/script.js"></script>

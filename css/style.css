@@ -74,6 +74,26 @@ body {
   font-weight: bold;
 }
 
+.list .tag-size-1 {
+  font-size: 12px;
+}
+
+.list .tag-size-2 {
+  font-size: 14px;
+}
+
+.list .tag-size-3 {
+  font-size: 17px;
+}
+
+.list .tag-size-4 {
+  font-size: 20px;
+}
+
+.list .tag-size-5 {
+  font-size: 24px;
+}
+
 .list-horizontal li {
   display: inline-block;
   padding-right: 6px;
@@ -103,26 +123,6 @@ body {
 
 .post-tags p {
   margin: 0 10px 0 0;
-}
-
-.post-tags .tag-size-1 {
-  font-size: 12px;
-}
-
-.post-tags .tag-size-2 {
-  font-size: 14px;
-}
-
-.post-tags .tag-size-3 {
-  font-size: 17px;
-}
-
-.post-tags .tag-size-4 {
-  font-size: 20px;
-}
-
-.post-tags .tag-size-5 {
-  font-size: 24px;
 }
 
 /*# sourceMappingURL=style.css.map */
