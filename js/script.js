@@ -74,7 +74,6 @@
       /* get the title from the title element */
 
       /* create HTML of the link */
-      //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
       const linkHTMLData = {id: articleId, title: articleTitle};
       const linkHTML = templates.articleLink(linkHTMLData);
@@ -110,8 +109,6 @@
 
       const dataAuthors = article.getAttribute('data-author');
 
-      //const linkHTML = '<a href="#author-'+ dataAuthors +'">' + dataAuthors + '</a>';
-
       const linkHTMLData = {id: dataAuthors, title: dataAuthors};
       const linkHTML = templates.authorsCloudLinks(linkHTMLData);
 
@@ -133,7 +130,7 @@
     let allAuthorsData = {author: []};
 
     for (let author in allAuthors) {
-      //allAuthorsHTML += '<li><a href="#author-' + author +'">' + author + '</a></li>';
+     
       allAuthorsData.author.push({
         author: author,
       });
@@ -177,6 +174,7 @@
   function addClickListenersToAuthors() {
 
     const linksAuthors = document.querySelectorAll('.post-author a');
+    
   
     for(let link of linksAuthors) {
     
@@ -188,7 +186,7 @@
     for(let link of rightAuthorsLinks) {
 
       link.addEventListener('click', authorClickHandler);
-      
+
     }
 
   }
@@ -243,7 +241,6 @@
       for (let tag of articleTagsArray) {
         
         /* generate HTML of the link */
-        //const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
 
         const linkHTMLData = {id: tag, title: tag};
         const linkHTML = templates.tagCloudLink(linkHTMLData);
@@ -279,7 +276,6 @@
     for (let tag in allTags) {
 
       /* [NEW] generate code of a link and add it to allTagsHTML */
-      //allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) +'"' + '>' + tag +'</a></li>';
       allTagsData.tags.push({
         tag: tag,
         count: allTags[tag],
